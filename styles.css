@@ -1,0 +1,25 @@
+body{
+    background-color:tomato;
+}
+
+#container{
+    display: grid;
+    width: 30rem;
+    height: 30rem;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    position: relative;
+}
+
+.square{
+    border: 3px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+}
+
+.square:hover{
+    background-color: rgb(219, 125, 108);
+    cursor: pointer;
+}
