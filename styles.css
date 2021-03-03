@@ -23,3 +23,7 @@ body{
     background-color: rgb(219, 125, 108);
     cursor: pointer;
 }
+
+.disableClick{
+    pointer-events: none;
+}
