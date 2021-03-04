@@ -1,5 +1,5 @@
 body{
-    background-color:tomato;
+    background-color:#26001b;
 }
 
 #container{
@@ -9,18 +9,22 @@ body{
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(3,1fr);
     position: relative;
+
+    margin: 3rem;
 }
 
 .square{
-    border: 3px solid white;
+    border: 3px solid #e4fbff;
+    color: #e4fbff;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 5rem;
+    user-select: none;
 }
 
 .square:hover{
-    background-color: rgb(219, 125, 108);
+    background-color:#ff005c;
     cursor: pointer;
 }
 
