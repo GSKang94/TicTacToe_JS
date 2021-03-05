@@ -1,5 +1,5 @@
-let gameBoard = () => {
-    let turnHistory = [];
+(function gameBoard() {
+    let totalHistory = [];
     let playerHistory = [];
     let compHistory = [];
     let square = document.querySelectorAll(".square");
@@ -7,54 +7,84 @@ let gameBoard = () => {
     let playerChoice = () => {
         square.forEach((el, i) => {
             el.addEventListener("click", () => {
-                turnHistory.push(i);
+                totalHistory.push(i);
                 // To avoid clicking the same square twice
                 el.classList.add("disableClick")
                 el.textContent = "X"
                 playerHistory.push(+el.id);
-
+                checkWinner(playerHistory, "Human")
                 compChoice()
             })
         })
     };
     let compChoice = () => {
         let randomNum = Math.floor(Math.random() * 9);
-        if (turnHistory.length <= 8) {
-            if (!turnHistory.includes(randomNum)) {
-                turnHistory.push(randomNum)
+        if (totalHistory.length <= 8) {
+            // To add new unique no. to array
+            if (!totalHistory.includes(randomNum)) {
+                totalHistory.push(randomNum)
                 square[randomNum].classList.add("disableClick")
                 square[randomNum].textContent = "O"
                 compHistory.push(+square[randomNum].id);
-                // console.log("comp", compHistory);
             } else {
                 compChoice()
             }
         }
-        checkWinner()
+        checkWinner(compHistory, "Computer")
     };
-    return { playerChoice, playerHistory, compHistory }
-}
+    playerChoice();
+})()
 
-let game = gameBoard()
-
-game.playerChoice()
-
-let checkWinner = () => {
-    let [p1, p2, p3, p4, p5] = game.playerHistory;
-    let [c1, c2, c3, c4] = game.compHistory;
-    // console.log(game.compHistory);
-    if ((p1 + p2 + p3) === 15) {
-        console.log('You win!');
-    } else if ((p2 + p3 + p4) === 15) {
-        console.log('You Win!!');
-    } else if ((p3 + p4 + p5) === 15) {
-        console.log('You Win');
-    } else if ((c1 + c2 + c3) === 15) {
-        console.log('Comp Win');
-    } else if ((c2 + c3 + c4) === 15) {
-        console.log('Comp Win!');
+let checkWinner = (arr, str) => {
+    // Magic square
+    for (i = 0; i < arr.length; i++) {
+        for (j = i + 1; j < arr.length; j++) {
+            for (k = j + 1; k < arr.length; k++) {
+                if ((arr[i] + arr[j] + arr[k]) === 15) {
+                    alert(str + " Wins");
+                }
+            }
+        }
     }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+    // console.log(game.playerHistory);
+    // console.log(game.compHistory);
+    // if ((p1 + p2 + p3) === 15) {
+    //     console.log('You win!');
+    // } else if ((p2 + p3 + p4) === 15) {
+    //     console.log('You Win!!');
+    // } else if ((p3 + p4 + p5) === 15) {
+    //     console.log('You Win');
+    // } else if ((p1 + p3 + p4) === 15) {
+    //     console.log('You Win');
+    // } else if ((p1 + p4 + p5) === 15) {
+    //     console.log('You Win!!!');
+    // } else if ((p2 + p4 + p5) === 15) {
+    //     console.log('You Win');
+    // } else if ((c1 + c2 + c3) === 15) {
+    //     console.log('Comp Wins');
+    // } else if ((c2 + c3 + c4) === 15) {
+    //     console.log('Comp wins');
+    // } else if ((c1 + c3 + c4) === 15) {
+    //     console.log('Comp wins');
+    // } else if ((c1 + c2 + c4) === 15) {
+    //     console.log('Comp wins');
+    // }
+
+
 
 
 
@@ -62,7 +92,7 @@ let checkWinner = () => {
 
 // let winner = () => {
 //     let winnerScore = 15;
-//     let [a, , b, , c, , d, , e] = turnHistory;
+//     let [a, , b, , c, , d, , e] = totalHistory;
     // switch (winnerScore) {
     //     case a + b + c:
     //         console.log('You won');
