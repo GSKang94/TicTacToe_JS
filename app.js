@@ -41,7 +41,7 @@ let checkWinner = (arr, str) => {
         for (j = i + 1; j < arr.length; j++) {
             for (k = j + 1; k < arr.length; k++) {
                 if ((arr[i] + arr[j] + arr[k]) === 15) {
-                    alert(str + " Wins");
+                    console.log(str + " Wins");
                 }
             }
         }

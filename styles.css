@@ -1,5 +1,5 @@
 body{
-    background-color:#26001b;
+    background-color:#c15050;
 }
 
 #container{
@@ -15,6 +15,8 @@ body{
 
 .square{
     border: 3px solid #e4fbff;
+    border-right: none;
+    border-bottom: none;
     color: #e4fbff;
     display: flex;
     justify-content: center;
@@ -24,10 +26,19 @@ body{
 }
 
 .square:hover{
-    background-color:#ff005c;
+    background-color:#d97642;
     cursor: pointer;
 }
 
 .disableClick{
     pointer-events: none;
+}
+
+
+[id="8"],[id="1"],[id="6"]{
+border-top: none;
+}
+
+[id="8"],[id="3"],[id="4"]{
+    border-left: none;
 }
