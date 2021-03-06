@@ -1,4 +1,5 @@
-@main-clr:#c15050;
+@import url('https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap');
+@main-clr:#413c69;
 
 * {
   margin: 0;
@@ -12,8 +13,32 @@
 }
 
 body{
-    background-color:@main-clr;
+   background-color: #d97642;
 }
+
+#main{
+    background-color:@main-clr;
+    font-family: 'RocknRoll One', sans-serif;
+    text-align: center; 
+    margin: 3rem auto;
+    padding-bottom: 4rem;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px 5px #000000;
+    width: 95%;
+    @media only screen and (min-width: 1024px) and (max-width: 1920px) {
+        width: 50%;
+    }
+    
+    h1{
+        margin: 3rem 0;
+        padding-top: 1.5rem;
+        letter-spacing: 0.3rem;
+        color: #d49d42;
+        font-weight: bold;
+        font-size: 2.5rem;
+    }
+}
+
 
 #container{
     display: grid;
@@ -21,11 +46,10 @@ body{
     height: 20rem;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(3,1fr);
-    /* position: relative; */
-    margin: 3rem;
+    margin: 0 auto;
 
     .square{
-        border: 4px solid #e4fbff;
+        border: 5px solid #e4fbff;
         border-right: none;
         border-bottom: none;
         color: #e4fbff;
@@ -34,6 +58,11 @@ body{
         align-items: center;
         font-size: 4rem;
         user-select: none;
+
+        &:hover{
+            background-color:#d97642;
+            cursor: pointer;
+        }
     }
 
     [id="8"],[id="1"],[id="6"]{
@@ -46,12 +75,12 @@ body{
 }
 
 
-.square:hover{
-    background-color:#d97642;
-    cursor: pointer;
-}
-
 .disableClick{
     pointer-events: none;
+    
 }
 
+
+// @keyframes fade{
+
+// }
