@@ -1,20 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+   box-sizing: border-box;
+   scroll-behavior:smooth;
+}
+
 body{
     background-color:#c15050;
 }
 
 #container{
     display: grid;
-    width: 30rem;
-    height: 30rem;
+    width: 20rem;
+    height: 20rem;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(3,1fr);
-    position: relative;
+    /* position: relative; */
 
     margin: 3rem;
 }
 
 .square{
-    border: 3px solid #e4fbff;
+    border: 4px solid #e4fbff;
     border-right: none;
     border-bottom: none;
     color: #e4fbff;
@@ -33,7 +44,6 @@ body{
 .disableClick{
     pointer-events: none;
 }
-
 
 [id="8"],[id="1"],[id="6"]{
 border-top: none;
