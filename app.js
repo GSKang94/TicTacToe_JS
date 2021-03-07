@@ -12,8 +12,10 @@
                 el.classList.add("disableClick")
                 el.textContent = "X"
                 playerHistory.push(+el.id);
-                checkWinner(playerHistory, "Human")
-                compChoice()
+                // To stop game after result
+                if (!(checkWinner(playerHistory, "Human"))) {
+                    compChoice();
+                }
             })
         })
     };
@@ -29,11 +31,14 @@
             } else {
                 compChoice()
             }
+        } else {
+            document.getElementById("result").innerText = "Tie game";
         }
         checkWinner(compHistory, "Computer")
     };
+
     playerChoice();
-})()
+})();
 
 let checkWinner = (arr, str) => {
     // Magic square
@@ -41,10 +46,21 @@ let checkWinner = (arr, str) => {
         for (j = i + 1; j < arr.length; j++) {
             for (k = j + 1; k < arr.length; k++) {
                 if ((arr[i] + arr[j] + arr[k]) === 15) {
-                    console.log(str + " Wins");
+                    return resultString(str)
                 }
             }
         }
     }
+}
 
+let resultString = (str) => {
+    document.getElementById("container").classList.add("disableClick");
+    let result = document.getElementById("result");
+    result.classList.add("fade")
+    if (str === "Human") {
+        result.innerText = 'Human has won';
+    } else if (str === "Computer") {
+        result.innerText = 'AI has won'
+    }
+    return true;
 }
