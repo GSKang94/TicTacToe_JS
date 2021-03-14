@@ -16,29 +16,34 @@
   scroll-behavior: smooth;
 }
 body {
-  background-color: #d97642;
+  background-color: #ecb390;
 }
 #main {
-  background-color: #413c69;
-  font-family: 'RocknRoll One', sans-serif;
+  background-color: #26001b;
+  font-family: "RocknRoll One", sans-serif;
   text-align: center;
   margin: 3rem auto;
-  padding-bottom: 4rem;
+  padding-bottom: 2rem;
   border-radius: 5px;
-  box-shadow: 5px 5px 15px 5px #000000;
+  box-shadow: 1px 10px 15px 0px rgba(0, 0, 0, 0.75);
   user-select: none;
-  width: 95%;
+  width: 50%;
 }
-@media only screen and (min-width: 1024px) and (max-width: 1920px) {
+@media only screen and (max-width: 600px) {
   #main {
-    width: 50%;
+    width: 98%;
+  }
+}
+@media only screen and (min-width: 600px) and (max-width: 1024px) {
+  #main {
+    width: 90%;
   }
 }
 #main h1 {
   margin: 3rem 0;
   padding-top: 1.5rem;
   letter-spacing: 0.3rem;
-  color: #d49d42;
+  color: #ffc75f;
   font-weight: bold;
   font-size: 2.5rem;
 }
@@ -48,6 +53,29 @@ body {
   color: #fff9b0;
   height: 1.3rem;
 }
+#main #restart {
+  width: 8rem;
+  height: 2rem;
+  background-color: transparent;
+  outline: none;
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  font-family: "RocknRoll One";
+  margin-top: 2rem;
+  color: white;
+  border: 1px solid white;
+  visibility: hidden;
+  transition: 0.3s all ease;
+}
+#main #restart:hover {
+  background-color: white;
+  color: #26001b;
+}
+.visible {
+  visibility: unset !important;
+  animation: fade 0.1s ease;
+}
 #container {
   display: grid;
   width: 20rem;
@@ -55,6 +83,8 @@ body {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   margin: 0 auto;
+}
+@media only screen and (max-width: 480px) {
 }
 #container .square {
   border: 5px solid #e4fbff;
@@ -88,7 +118,7 @@ body {
 }
 @keyframes fade {
   0% {
-    transform: scale(2);
+    transform: scale(1.2);
     filter: blur(4px);
     opacity: 0;
   }
